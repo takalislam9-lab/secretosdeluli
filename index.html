@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Secretos de Luli | Spa de Masajes | San Sebastián de los Reyes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#6b9080;
+    --sand:#e8d5b7;
+    --dark:#2b332e;
+    --cream:#f5f1e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark);line-height:1.65;}
+  h1,h2{font-family:'DM Serif Display',serif;font-weight:400;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e6ddd0;}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1140px;margin:0 auto;}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--sage);}
+  nav ul{list-style:none;display:flex;gap:28px;}
+  nav ul a{font-size:.86rem;color:var(--dark);font-weight:500;}
+  nav ul a:hover{color:var(--sage);}
+  .nav-cta{background:var(--sage);color:#fff;padding:10px 20px;border-radius:2px;font-weight:600;font-size:.82rem;}
+
+  .hero{position:relative;min-height:84vh;display:flex;align-items:center;overflow:hidden;color:#fff;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(43,51,46,.88) 25%,rgba(107,144,128,.45) 100%);}
+  .hero-content{position:relative;z-index:2;padding:60px 24px;max-width:1140px;margin:0 auto;width:100%;}
+  .hero-tag{display:inline-block;border-bottom:1px solid var(--sand);color:var(--sand);padding-bottom:6px;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:24px;}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.2;margin-bottom:22px;}
+  .hero p{max-width:520px;font-size:1.05rem;opacity:.92;margin-bottom:30px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:15px 30px;border-radius:2px;font-weight:600;font-size:.85rem;letter-spacing:.03em;transition:.2s;}
+  .btn-primary{background:var(--sand);color:var(--dark);}
+  .btn-primary:hover{background:#ddc298;}
+  .btn-outline{border:1px solid #fff;color:#fff;}
+  .btn-outline:hover{background:#fff;color:var(--dark);}
+
+  .stats{background:var(--dark);color:#fff;padding:34px 0;}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:20px;}
+  .stats b{display:block;font-family:'DM Serif Display',serif;font-size:2rem;color:var(--sand);}
+  .stats span{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;opacity:.8;}
+
+  section{padding:90px 0;}
+  .section-tag{color:var(--sage);text-transform:uppercase;font-size:.75rem;letter-spacing:.15em;font-weight:600;margin-bottom:10px;display:block;}
+  .section-title{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:16px;}
+  .section-desc{max-width:600px;color:#615c53;margin-bottom:50px;}
+
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e6ddd0;}
+  .service-card{background:#fff;padding:38px 30px;}
+  .service-card h3{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:10px;font-weight:400;}
+  .service-card p{color:#615c53;font-size:.92rem;}
+
+  .gallery{background:var(--cream);}
+  .gallery-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:3px;}
+  .gallery-grid .tall{height:520px;}
+
+  .why{background:#fff;}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+  .why-card{text-align:left;border-top:2px solid var(--sand);padding-top:18px;}
+  .why-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:8px;font-weight:400;}
+  .why-card p{color:#615c53;font-size:.9rem;}
+
+  .steps{background:var(--cream);}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;counter-reset:step;}
+  .step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:'DM Serif Display',serif;font-size:2.1rem;color:var(--sage);opacity:.5;}
+  .step h3{font-family:'DM Serif Display',serif;font-size:1.05rem;margin:8px 0;font-weight:400;}
+  .step p{color:#615c53;font-size:.88rem;}
+
+  .testimonials{background:#fff;}
+  .reviews-tag{display:block;font-size:.75rem;color:#999;margin-bottom:40px;font-style:italic;}
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .test-card{background:var(--cream);padding:30px;border-radius:3px;}
+  .stars{color:var(--sage);margin-bottom:12px;letter-spacing:2px;}
+  .test-card p{font-size:.95rem;color:#4a4640;margin-bottom:18px;font-style:italic;}
+  .test-name{font-weight:700;font-size:.86rem;color:var(--sage);}
+
+  .contact{background:var(--dark);color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .contact .section-tag{color:var(--sand);}
+  .contact h2{color:#fff;}
+  .info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+  .info-row b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--sand);margin-bottom:4px;}
+  .info-row span{color:#dce3dc;font-size:.95rem;}
+  .map-embed{border-radius:3px;overflow:hidden;height:100%;min-height:340px;}
+  .map-embed iframe{width:100%;height:100%;border:0;min-height:340px;}
+
+  footer{background:#1f251f;color:#9ba39a;padding:34px 0;text-align:center;font-size:.82rem;}
+  footer strong{color:#dce3dc;}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:60;}
+  .wa-float svg{width:30px;height:30px;fill:#fff;}
+
+  @media(max-width:860px){
+    nav ul{display:none;}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);}
+    .services-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .steps-grid{grid-template-columns:repeat(2,1fr);}
+    .test-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-grid .tall{height:320px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Los Secretos de Luli</div>
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Espacio</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/34675011794?text=Hola!%20He%20visto%20vuestra%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20info" target="_blank">Reservar cita</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1741522509438-a120c0bb5e88?q=80&w=1600&auto=format&fit=crop" alt="Masaje relajante">
+  <div class="hero-content">
+    <span class="hero-tag">San Sebastián de los Reyes · Spa de Masajes</span>
+    <h1>Tu momento de<br>calma y bienestar</h1>
+    <p>Masajes relajantes, drenaje linfático y limpieza facial en un espacio pequeño y acogedor, con Luli cuidando cada sesión al detalle.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/34675011794?text=Hola!%20Quiero%20reservar%20cita" target="_blank">Reserva tu cita</a>
+      <a class="btn btn-outline" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div><b>4,9★</b><span>Valoración Google</span></div>
+    <div><b>66</b><span>Reseñas reales</span></div>
+    <div><b>100%</b><span>Ambiente relajante</span></div>
+    <div><b>+5</b><span>Años de experiencia</span></div>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <span class="section-tag">Qué hacemos</span>
+    <h2 class="section-title">Nuestros servicios</h2>
+    <p class="section-desc">Un espacio pensado para desconectar, con tratamientos que cuidan tanto el cuerpo como la mente.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><h3>Masaje relajante</h3><p>Alivia tensiones y desconecta con un masaje de cuerpo completo.</p></div>
+    <div class="service-card"><h3>Drenaje linfático</h3><p>Especialmente recomendado durante el embarazo y para reducir hinchazón.</p></div>
+    <div class="service-card"><h3>Limpieza facial</h3><p>Limpieza e hidratación para dejar tu piel radiante.</p></div>
+    <div class="service-card"><h3>Lifting de pestañas</h3><p>Curvatura natural sin necesidad de extensiones.</p></div>
+    <div class="service-card"><h3>Diseño de cejas</h3><p>Depilación y perfilado según la forma de tu rostro.</p></div>
+    <div class="service-card"><h3>Masaje descontracturante</h3><p>Alivio de cuello y espalda con técnica profesional.</p></div>
+  </div>
+</section>
+
+<section class="gallery" id="nosotros">
+  <div class="wrap">
+    <span class="section-tag">Nuestro espacio</span>
+    <h2 class="section-title">Pequeño, cuidado y acogedor</h2>
+    <p class="section-desc">Un rincón de calma en Sanse donde cada sesión se vive con tranquilidad.</p>
+    <div class="gallery-grid">
+      <img class="tall" src="https://images.unsplash.com/photo-1741522509438-a120c0bb5e88?q=80&w=1200&auto=format&fit=crop" alt="Sesión de masaje">
+      <img src="https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5?q=80&w=900&auto=format&fit=crop" alt="Ambiente relajante">
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <span class="section-tag">Por qué elegirnos</span>
+    <h2 class="section-title">Bienestar de verdad</h2>
+    <div class="why-grid">
+      <div class="why-card"><h3>Trato exquisito</h3><p>Cada sesión se adapta a lo que tu cuerpo necesita.</p></div>
+      <div class="why-card"><h3>Ambiente tranquilo</h3><p>Un espacio pequeño pensado para relajarte de verdad.</p></div>
+      <div class="why-card"><h3>Muy valorado</h3><p>4,9 sobre 5 en Google, con clientas fieles desde hace años.</p></div>
+      <div class="why-card"><h3>En Sanse</h3><p>Fácil acceso, sin desplazarte al centro de Madrid.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <span class="section-tag">Cómo reservar</span>
+    <h2 class="section-title">En 4 pasos</h2>
+    <div class="steps-grid">
+      <div class="step"><h3>Escríbenos</h3><p>Cuéntanos qué tratamiento te interesa.</p></div>
+      <div class="step"><h3>Reservamos cita</h3><p>Buscamos el día y hora que te venga bien.</p></div>
+      <div class="step"><h3>Te relajas</h3><p>Disfrutas de tu sesión sin prisas.</p></div>
+      <div class="step"><h3>Sales renovada</h3><p>Con el bienestar que buscabas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="opiniones">
+  <div class="wrap">
+    <span class="section-tag">Opiniones</span>
+    <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+    <span class="reviews-tag">Reseñas de ejemplo · pendiente de reales</span>
+    <div class="test-grid">
+      <div class="test-card"><div class="stars">★★★★★</div><p>"El drenaje linfático durante el embarazo fue un salvavidas, alivió la hinchazón por completo."</p><div class="test-name">— Josy R.</div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p>"Me ha dejado el cuello como nuevo, hasta siento la cabeza más despejada."</p><div class="test-name">— Cliente Google.</div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p>"Local pequeño pero limpio y acogedor. Muy profesional y encantadora."</p><div class="test-name">— Vane.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <span class="section-tag">Contacto</span>
+    <h2 class="section-title">Reserva tu cita</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="info-row"><span>📍</span><div><b>Dirección</b><span>C. del Sacramento, 8, San Sebastián de los Reyes, Madrid</span></div></div>
+        <div class="info-row"><span>📞</span><div><b>Teléfono / WhatsApp</b><span>675 01 17 94</span></div></div>
+        <div class="info-row"><span>⭐</span><div><b>Valoración</b><span>4,9 sobre 5 · 66 reseñas en Google</span></div></div>
+        <div class="info-row"><span>🕐</span><div><b>Horario</b><span>Consultar disponibilidad por WhatsApp</span></div></div>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps?q=Los+Secretos+de+Luli+C.+del+Sacramento+8+San+Sebastian+de+los+Reyes&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Propuesta de diseño para <strong>Los Secretos de Luli</strong> · demo, no es el sitio web oficial del negocio.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/34675011794?text=Hola!%20He%20visto%20vuestra%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20info" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.8 3.3 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3 .9.9-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12c0-4.7 3.9-8.6 8.6-8.6s8.6 3.9 8.6 8.6-3.9 8.6-8.6 8.6zm4.7-6.4c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.4-1.8-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.2-.2-.2-.5-.3z"/></svg>
+</a>
+
+</body>
+</html>
